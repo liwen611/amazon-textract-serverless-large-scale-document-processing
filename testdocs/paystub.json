@@ -1,0 +1,20 @@
+{
+  "Records": [
+    {
+      "messageId": "7eb40cab-f45e-4fd0-8765-a434fb7f976a",
+      "receiptHandle": "AQEB6aKqd/DhVBTRDEfCC1X6V4NXn281ZKOBVyy+7vu9gPSes6TKTygsPA+WPE0ZvOCkY3AQ+CCz042ck5U7upGA4ZhOt2AIJ2j+FkOSZuvkn1A79EFwwSwfaDf5s1cs8sCLrMbD4HfA6jvVeFqijhuuuRpUqRRbrNfkLoWBWhy1spKexOV+mKh3SAEDfr/G/BMoGJSJU0QzK/ZiHsfG9uMvlWfw2JWdzIecYmmF/Jwb0KMJx9y2+qcr8EAeqA0HLKmG8XqR82wIFr/KfTr7B+YE4VpRF3IQLFQXumLQ1x1kExhTXNzxiHcIRYvFia3ik7mt7uBGW87BnQFWa9NDrSGtQt56KBNC2GgzyJBsiyS4apscdaT1LxrsAIOMH2nN/yiD96X4XnYM+r6gXOGSQlC8VPpc3oFxsIr1vFh/86DP9ec=",
+      "body": "{\"documentId\": \"7890\", \"bucketName\": \"texttract-incoming\", \"objectName\": \"images/paystub1.png\", \"features\": [\"Text\", \"Tables\", \"Forms\"]}",
+      "attributes": {
+        "ApproximateReceiveCount": "40",
+        "SentTimestamp": "1597114262910",
+        "SenderId": "AROAIN4ZKEUTZ5CZYFRFW:lhuang",
+        "ApproximateFirstReceiveTimestamp": "1597114262910"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "68e39c8f3d46b7cd4b643cfe381c1303",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-west-2:415596832415:texttract_incomingfile_queue",
+      "awsRegion": "us-west-2"
+    }
+  ]
+}

@@ -6,6 +6,8 @@ from helper import AwsHelper, S3Helper, DynamoDBHelper
 from og import OutputGenerator
 import datastore
 
+boto3.setup_default_session(profile_name = "dev")
+
 def callTextract(bucketName, objectName, detectText, detectForms, detectTables):
     textract = AwsHelper().getClient('textract')
     if(not detectForms and not detectTables):
@@ -49,13 +51,12 @@ def processImage(documentId, features, bucketName, objectName, outputTableName, 
     ddb = dynamodb.Table(outputTableName)
 
     print("Generating output for DocumentId: {}".format(documentId))
-
+    ds = datastore.DocumentStore(documentsTableName, outputTableName)
     opg = OutputGenerator(documentId, response, bucketName, objectName, detectForms, detectTables, ddb)
+    ds.createDocument(documentId, bucketName, objectName)
     opg.run()
 
     print("DocumentId: {}".format(documentId))
-
-    ds = datastore.DocumentStore(documentsTableName, outputTableName)
     ds.markDocumentComplete(documentId)
 
 # --------------- Main handler ------------------
@@ -98,7 +99,21 @@ def lambda_handler(event, context):
     request["bucketName"] = message['bucketName']
     request["objectName"] = message['objectName']
     request["features"] = message['features']    
-    request["outputTable"] = os.environ['OUTPUT_TABLE']
-    request["documentsTable"] = os.environ['DOCUMENTS_TABLE']
+    request["outputTable"] = os.environ.get('OUTPUT_TABLE', 'texttract_output_table')
+    request["documentsTable"] = os.environ.get('DOCUMENTS_TABLE', 'texttract_documents_table')
 
     return processRequest(request)
+
+if __name__ == "__main__":
+    with open("../testdocs/paystub.json", "r") as file:
+        event = json.load(file)
+    
+    lambda_handler(event, context = None)
+    
+    
+    
+    
+    
+    
+    
+    

@@ -1,5 +1,5 @@
 .DS_Store
-
+src/__pycache__/*
 *.js
 !jest.config.js
 *.d.ts

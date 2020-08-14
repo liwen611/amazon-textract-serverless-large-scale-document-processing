@@ -1,5 +1,6 @@
 .DS_Store
 src/__pycache__/*
+lambda_layer/*
 *.js
 !jest.config.js
 *.d.ts

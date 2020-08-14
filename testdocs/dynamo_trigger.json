@@ -1,0 +1,40 @@
+{
+  "Records": [
+    {
+      "eventID": "07a8a19feead6e191436e4a064a8abec",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-west-2",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1597424684.0,
+        "Keys": {
+          "documentId": {
+            "S": "3fcf4a90-de50-11ea-9007-8a32083f3620"
+          }
+        },
+        "NewImage": {
+          "bucketName": {
+            "S": "texttract-incoming"
+          },
+          "documentCreatedOn": {
+            "S": "2020-08-14 17:04:44.530251"
+          },
+          "objectName": {
+            "S": "pdf/Sample_Form_W-2.pdf"
+          },
+          "documentId": {
+            "S": "3fcf4a90-de50-11ea-9007-8a32083f3620"
+          },
+          "documentStatus": {
+            "S": "IN_PROGRESS"
+          }
+        },
+        "SequenceNumber": "15568300000000028341427434",
+        "SizeBytes": 221,
+        "StreamViewType": "NEW_AND_OLD_IMAGES"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:us-west-2:415596832415:table/texttract_documents_table/stream/2020-08-14T16:53:41.367"
+    }
+  ]
+}

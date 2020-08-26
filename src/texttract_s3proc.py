@@ -21,7 +21,7 @@ def processRequest(request):
     ext = FileHelper.getFileExtenstion(objectName.lower())
     print("Extension: {}".format(ext))
 
-    if(ext and ext in ["jpg", "jpeg", "png", "pdf"]):
+    if(ext in ["jpg", "jpeg", "png", "pdf", ""]):
         documentId = str(uuid.uuid1())
         ds = datastore.DocumentStore(documentsTable, outputTable)
         ds.createDocument(documentId, bucketName, objectName)
@@ -42,7 +42,13 @@ def lambda_handler(event, context):
     request = {}
     request["bucketName"] = event['Records'][0]['s3']['bucket']['name']
     request["objectName"] = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'])
-    request["documentsTable"] = os.environ['DOCUMENTS_TABLE']
-    request["outputTable"] = os.environ['OUTPUT_TABLE']
+    request["documentsTable"] = os.getenv('DOCUMENTS_TABLE', 'texttract_documents_table')
+    request["outputTable"] = os.getenv('OUTPUT_TABLE', 'texttract_output_table')
 
     return processRequest(request)
+
+if __name__ == "__main__":
+    with open("../testdocs/s3_woext_trigger.json", "r") as file:
+        event = json.load(file)
+    
+    lambda_handler(event, context = None)

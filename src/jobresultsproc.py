@@ -6,7 +6,8 @@ from helper import AwsHelper
 from og import OutputGenerator
 import datastore
 
-def getJobResults(api, jobId):
+
+def getJobResults(jobId, api = "StartDocumentAnalysis"):
 
     pages = []
 
@@ -56,7 +57,7 @@ def processRequest(request):
     outputTable = request["outputTable"]
     documentsTable = request["documentsTable"]
 
-    pages = getJobResults(jobAPI, jobId)
+    pages = getJobResults(jobId, jobAPI)
 
     print("Result pages recieved: {}".format(len(pages)))
 
@@ -107,11 +108,16 @@ def lambda_handler(event, context):
     request["bucketName"] = message['DocumentLocation']['S3Bucket']
     request["objectName"] = message['DocumentLocation']['S3ObjectName']
     
-    request["outputTable"] = os.environ['OUTPUT_TABLE']
-    request["documentsTable"] = os.environ['DOCUMENTS_TABLE']
+    request["outputTable"] = os.environ.get('OUTPUT_TABLE','texttract_output_table')
+    request["documentsTable"] = os.environ.get('DOCUMENTS_TABLE', 'texttract_documents_table')
 
     return processRequest(request)
 
-def lambda_handler_local(event, context):
-    print("event: {}".format(event))
-    return processRequest(event)
+if __name__ == "__main__":
+    boto3.setup_default_session(profile_name = "dev")
+
+    with open("../testdocs/jobstatus_sqs.json", "r") as file:
+        event = json.load(file)
+    
+    lambda_handler(event, context = None)
+

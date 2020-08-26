@@ -1,0 +1,38 @@
+{
+    "Records": [
+      {
+        "eventVersion": "2.1",
+        "eventSource": "aws:s3",
+        "awsRegion": "us-west-2",
+        "eventTime": "2020-08-24T04:05:29.013Z",
+        "eventName": "ObjectCreated:Put",
+        "userIdentity": {
+          "principalId": "AWS:AROAIN4ZKEUTZ5CZYFRFW:lhuang"
+        },
+        "requestParameters": {
+          "sourceIPAddress": "174.128.191.1"
+        },
+        "responseElements": {
+          "x-amz-request-id": "88441887404023B1",
+          "x-amz-id-2": "6g/jgJHkYtSNQG+1i21wplIjvRW+CwihPV+YWim/CUOYGj3hy00gOJU7oXW9FYFX1rt/GieBJNtDGxEOlGWiYyV0url5zD8H"
+        },
+        "s3": {
+          "s3SchemaVersion": "1.0",
+          "configurationId": "72b77c5b-f104-4e55-ba05-b8a6bf2fec76",
+          "bucket": {
+            "name": "texttract-incoming",
+            "ownerIdentity": {
+              "principalId": "A1WZ0MLJRLXRXK"
+            },
+            "arn": "arn:aws:s3:::texttract-incoming"
+          },
+          "object": {
+            "key": "pdf/Sample_Form_W-2.pdf",
+            "size": 428587,
+            "eTag": "3fbc84ba688c8c9338c6caf93f3c3c0b",
+            "sequencer": "005F433C8A4462FEA9"
+          }
+        }
+      }
+    ]
+  }

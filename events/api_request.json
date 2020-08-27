@@ -1,0 +1,87 @@
+{
+    "resource": "/texttract",
+    "path": "/texttract",
+    "httpMethod": "GET",
+    "headers": {
+      "Accept": "*/*",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Host": "a7lkj2zrx8.execute-api.us-west-2.amazonaws.com",
+      "Postman-Token": "f66f8564-acce-4d7d-9f2f-a39eafe7a678",
+      "User-Agent": "PostmanRuntime/7.26.3",
+      "X-Amzn-Trace-Id": "Root=1-5f46f8fd-a0ec29b4db766bd3070491ac",
+      "X-Forwarded-For": "174.128.191.1",
+      "X-Forwarded-Port": "443",
+      "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+      "Accept": [
+        "*/*"
+      ],
+      "Accept-Encoding": [
+        "gzip, deflate, br"
+      ],
+      "Host": [
+        "a7lkj2zrx8.execute-api.us-west-2.amazonaws.com"
+      ],
+      "Postman-Token": [
+        "f66f8564-acce-4d7d-9f2f-a39eafe7a678"
+      ],
+      "User-Agent": [
+        "PostmanRuntime/7.26.3"
+      ],
+      "X-Amzn-Trace-Id": [
+        "Root=1-5f46f8fd-a0ec29b4db766bd3070491ac"
+      ],
+      "X-Forwarded-For": [
+        "174.128.191.1"
+      ],
+      "X-Forwarded-Port": [
+        "443"
+      ],
+      "X-Forwarded-Proto": [
+        "https"
+      ]
+    },
+    "queryStringParameters": {
+      "file": "test_url/random.pdf"
+    },
+    "multiValueQueryStringParameters": {
+      "file": [
+        "test_url/random.pdf"
+      ]
+    },
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+      "resourceId": "6rhnin",
+      "resourcePath": "/texttract",
+      "httpMethod": "GET",
+      "extendedRequestId": "R5vXsGDqvHcFr3Q=",
+      "requestTime": "27/Aug/2020:00:06:21 +0000",
+      "path": "/litter_box/texttract",
+      "accountId": "415596832415",
+      "protocol": "HTTP/1.1",
+      "stage": "litter_box",
+      "domainPrefix": "a7lkj2zrx8",
+      "requestTimeEpoch": 1598486781944,
+      "requestId": "38bb66ea-6d0c-4d8a-a2fe-2a2cd81d978d",
+      "identity": {
+        "cognitoIdentityPoolId": null,
+        "accountId": null,
+        "cognitoIdentityId": null,
+        "caller": null,
+        "sourceIp": "174.128.191.1",
+        "principalOrgId": null,
+        "accessKey": null,
+        "cognitoAuthenticationType": null,
+        "cognitoAuthenticationProvider": null,
+        "userArn": null,
+        "userAgent": "PostmanRuntime/7.26.3",
+        "user": null
+      },
+      "domainName": "a7lkj2zrx8.execute-api.us-west-2.amazonaws.com",
+      "apiId": "a7lkj2zrx8"
+    },
+    "body": null,
+    "isBase64Encoded": false
+  }

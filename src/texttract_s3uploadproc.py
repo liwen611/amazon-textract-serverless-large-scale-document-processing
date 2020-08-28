@@ -92,7 +92,7 @@ def lambda_handler(event, context):
         }
 
     response = create_presigned_url_expanded(client_method_name = "put_object", method_parameters=upload_file_parameters,
-                             http_method=None)
+                             http_method="PUT")
     
     return {
         'statusCode': 200,
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     with open("../events/api_request.json", "r") as file:
         event = json.load(file)
 
-    print("function return: %s", lambda_handler(event, context = None))
+    print("function return: ", lambda_handler(event, context = None))
 
 
 

@@ -1,0 +1,38 @@
+{
+    "Records": [
+      {
+        "eventVersion": "2.1",
+        "eventSource": "aws:s3",
+        "awsRegion": "us-west-2",
+        "eventTime": "2020-08-28T17:57:17.489Z",
+        "eventName": "ObjectCreated:Put",
+        "userIdentity": {
+          "principalId": "AWS:AROAIN4ZKEUTZ5CZYFRFW:lhuang"
+        },
+        "requestParameters": {
+          "sourceIPAddress": "174.128.191.1"
+        },
+        "responseElements": {
+          "x-amz-request-id": "AA8089DF53136E22",
+          "x-amz-id-2": "8ihtZ3y9MLM80vz2XdtTZ6uqr6JQhz5u8lw4lh+ab4i1fIZYdnwuXgV6Nz5R3WqpRWf6jpwe9IQz7huWLyuHyH3gC4oYFSRY"
+        },
+        "s3": {
+          "s3SchemaVersion": "1.0",
+          "configurationId": "72b77c5b-f104-4e55-ba05-b8a6bf2fec76",
+          "bucket": {
+            "name": "texttract-incoming",
+            "ownerIdentity": {
+              "principalId": "A1WZ0MLJRLXRXK"
+            },
+            "arn": "arn:aws:s3:::texttract-incoming"
+          },
+          "object": {
+            "key": "url_test8/random.pdf",
+            "size": 57052,
+            "eTag": "57a7e09ad951f29f332a7640d470fb2d",
+            "sequencer": "005F49457E99B9BAB0"
+          }
+        }
+      }
+    ]
+  }

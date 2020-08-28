@@ -3,6 +3,7 @@ import boto3
 import json
 import os
 from botocore.exceptions import ClientError
+import uuid
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -70,28 +71,25 @@ def create_presigned_url_expanded(client_method_name, method_parameters=None,
 def lambda_handler(event, context):
     logger.info(f"this is the orignal event: {event}")
     
-    #bucket_name = event["queryStringParameters"]["bucket"]
-    # bucket_name = os.environ.get("texttract_bucket", "texttract-incoming")
-    # file_name = event["queryStringParameters"]["file"]
+    bucketName = os.getenv("texttract_bucket", "texttract-incoming")
+    fileName = event["queryStringParameters"]["file"]
+    userEmail = event["queryStringParameters"]["email"]
+    documentId = str(uuid.uuid1())
     
-    # response = create_presigned_post(bucket_name, file_name)
-    # if response is None:
-    #     exit(1)
-    object_name = "url_test4/random.pdf"
-    bucket_name = "texttract-incoming"
-    file_name = "/Users/lhuang/Project/aws-texttract-research/input_data/images/paystub1.png"
-    Metadata={
-        'key4': 'value4'
-    }
-           
-    upload_file_parameters = {
-        "Key": object_name,
-        "Bucket": bucket_name,
-        "Body": file_name,
+    Metadata = {
+        "document_id" : documentId,
+        "user_email": userEmail
+    }    
+    Parameters = {
+        "Key": fileName,
+        "Bucket": bucketName,
         "Metadata": Metadata
         }
 
-    response = create_presigned_url_expanded(client_method_name = "put_object", method_parameters=upload_file_parameters,
+    if os.getenv("url_method") == "post":
+        response = create_presigned_post(bucketName, fileName)
+    else:
+        response = create_presigned_url_expanded(client_method_name = "put_object", method_parameters=Parameters,
                              http_method="PUT")
     
     return {
